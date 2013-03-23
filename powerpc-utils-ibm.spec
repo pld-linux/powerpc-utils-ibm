@@ -11,6 +11,7 @@ Source0:	http://downloads.sourceforge.net/powerpc-utils/powerpc-utils-%{version}
 # Source0-md5:	bb49d80d53347185015f54f62bc20135
 URL:		http://powerpc-utils.sourceforge.net/
 BuildRequires:	librtas-devel
+Obsoletes:	powerpc-utils-papr
 ExclusiveArch:	ppc ppc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
