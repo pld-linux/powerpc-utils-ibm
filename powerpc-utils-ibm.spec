@@ -3,12 +3,12 @@ Summary(pl.UTF-8):	Narzędzia dla platform PowerPC wyprodukowanych przez IBM
 # NOTE: original name is powerpc-utils, but this name in PLD was already
 # occupied by (renamed) pmac-utils package (which is for PowerPCs from Apple)
 Name:		powerpc-utils-ibm
-Version:	1.2.8
+Version:	1.2.16
 Release:	1
 License:	CPL v1.0
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/powerpc-utils/powerpc-utils-%{version}.tar.gz
-# Source0-md5:	ec70b855244fd4b8f82ae18cb78cbd09
+# Source0-md5:	bb49d80d53347185015f54f62bc20135
 URL:		http://powerpc-utils.sourceforge.net/
 BuildRequires:	librtas-devel
 ExclusiveArch:	ppc ppc64
@@ -67,13 +67,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/sys_ident
 %attr(755,root,root) %{_sbindir}/uesensor
 %attr(755,root,root) %{_sbindir}/update_flash
-%attr(755,root,root) %{_sbindir}/usysattn
-%attr(755,root,root) %{_sbindir}/usysident
 %{_mandir}/man1/amsstat.1*
 %{_mandir}/man5/lparcfg.5*
 %{_mandir}/man8/activate_firmware.8*
 %{_mandir}/man8/bootlist.8*
 %{_mandir}/man8/hvcsadmin.8*
+%{_mandir}/man8/lparstat.8*
+%{_mandir}/man8/lsslot.8*
 %{_mandir}/man8/nvram.8*
 %{_mandir}/man8/ofpathname.8*
 %{_mandir}/man8/rtas_dump.8*
@@ -84,5 +84,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/sys_ident.8*
 %{_mandir}/man8/uesensor.8*
 %{_mandir}/man8/update_flash.8*
-%{_mandir}/man8/usysattn.8*
-%{_mandir}/man8/usysident.8*
