@@ -3,12 +3,13 @@ Summary(pl.UTF-8):	Narzędzia dla platform PowerPC wyprodukowanych przez IBM
 # NOTE: original name is powerpc-utils, but this name in PLD was already
 # occupied by (renamed) pmac-utils package (which is for PowerPCs from Apple)
 Name:		powerpc-utils-ibm
-Version:	1.2.16
+Version:	1.2.26
 Release:	1
 License:	CPL v1.0
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/powerpc-utils/powerpc-utils-%{version}.tar.gz
-# Source0-md5:	bb49d80d53347185015f54f62bc20135
+# Source0-md5:	2b1b84cf300a4b4bc2873e949cafc06f
+Patch0:		powerpc-utils-includes.patch
 URL:		http://powerpc-utils.sourceforge.net/
 BuildRequires:	librtas-devel
 Obsoletes:	powerpc-utils-papr
@@ -25,9 +26,11 @@ sprzęcie firmy IBM.
 
 %prep
 %setup -q -n powerpc-utils-%{version}
+%patch0 -p1
 
 %build
-%configure
+%configure \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -59,6 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/nvram
 %attr(755,root,root) %{_sbindir}/ofpathname
 %attr(755,root,root) %{_sbindir}/ppc64_cpu
+%attr(755,root,root) %{_sbindir}/pseries_platform
 %attr(755,root,root) %{_sbindir}/rtas_dump
 %attr(755,root,root) %{_sbindir}/rtas_event_decode
 %attr(755,root,root) %{_sbindir}/rtas_ibm_get_vpd
@@ -68,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/sys_ident
 %attr(755,root,root) %{_sbindir}/uesensor
 %attr(755,root,root) %{_sbindir}/update_flash
+%attr(755,root,root) %{_sbindir}/update_flash_nv
 %{_mandir}/man1/amsstat.1*
 %{_mandir}/man5/lparcfg.5*
 %{_mandir}/man8/activate_firmware.8*
@@ -77,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/lsslot.8*
 %{_mandir}/man8/nvram.8*
 %{_mandir}/man8/ofpathname.8*
+%{_mandir}/man8/ppc64_cpu.8*
 %{_mandir}/man8/rtas_dump.8*
 %{_mandir}/man8/rtas_ibm_get_vpd.8*
 %{_mandir}/man8/serv_config.8*
