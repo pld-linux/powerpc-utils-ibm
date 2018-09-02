@@ -3,13 +3,13 @@ Summary(pl.UTF-8):	Narzędzia dla platform PowerPC wyprodukowanych przez IBM
 # NOTE: original name is powerpc-utils, but this name in PLD was already
 # occupied by (renamed) pmac-utils package (which is for PowerPCs from Apple)
 Name:		powerpc-utils-ibm
-Version:	1.3.2
+Version:	1.3.5
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 #Source0Download: https://github.com/nfont/powerpc-utils/releases
 Source0:	https://github.com/nfont/powerpc-utils/archive/v%{version}/powerpc-utils-%{version}.tar.gz
-# Source0-md5:	b579a910c88adf03e7130374727748be
+# Source0-md5:	204aaf9811ec0d37a68a9afd9c0578cb
 Patch0:		powerpc-utils-includes.patch
 Patch1:		powerpc-utils-install.patch
 URL:		http://powerpc-utils.sourceforge.net/
@@ -72,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/lsprop
 %attr(755,root,root) %{_sbindir}/lsslot
 %attr(755,root,root) %{_sbindir}/nvram
+%attr(755,root,root) %{_sbindir}/nvsetenv
 %attr(755,root,root) %{_sbindir}/ofpathname
 %attr(755,root,root) %{_sbindir}/ppc64_cpu
 %attr(755,root,root) %{_sbindir}/pseries_platform
